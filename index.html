@@ -66,8 +66,8 @@ header.scrolled{border-bottom-color:var(--line)}
 .btn:hover{background:#A33E23}
 .btn:active{transform:translateY(1px)}
 .btn.block{width:100%}
-.btn.wa{background:#1E8E4A;box-shadow:0 10px 24px -14px rgba(30,142,74,.8)}
-.btn.wa:hover{background:#187A3F}
+.btn[disabled]{opacity:.7;cursor:wait}
+.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;overflow:hidden}
 .link{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:1.5px solid var(--line);padding-bottom:2px;transition:border-color .2s}
 .link:hover{border-color:var(--ink)}
 
@@ -346,7 +346,7 @@ footer img{height:30px;width:auto}
         <ul class="promise">
           <li><span class="ar">مش هتدفعي حاجة وانتي بتحجزي</span><span class="en">You pay nothing to reserve</span></li>
           <li><span class="ar">تقدري تلغي قبل ما الصندوق يتبعت</span><span class="en">Cancel any time before the box ships</span></li>
-          <li><span class="ar">بياناتك بتوصلنا على واتساب بس</span><span class="en">Your details only reach us on WhatsApp</span></li>
+          <li><span class="ar">رقمك بنستخدمه بس عشان نأكد حجزك</span><span class="en">We only use your number to confirm your box</span></li>
         </ul>
       </div>
       <div class="card">
@@ -355,6 +355,11 @@ footer img{height:30px;width:auto}
             <label for="name"><span class="ar">اسمك</span><span class="en">Your name</span></label>
             <input type="text" id="name" autocomplete="given-name" maxlength="60">
           </div>
+          <div class="field">
+            <label for="phone"><span class="ar">رقم موبايلك (واتساب)</span><span class="en">Your mobile number (WhatsApp)</span></label>
+            <input type="tel" id="phone" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="01xxxxxxxxx" dir="ltr">
+          </div>
+          <div class="hp" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" tabindex="-1" autocomplete="off"></div>
           <div class="field">
             <label for="age"><span class="ar">سن طفلك</span><span class="en">Your child's age</span></label>
             <select id="age"></select>
@@ -367,18 +372,15 @@ footer img{height:30px;width:auto}
             <legend><span class="ar">الباقة</span><span class="en">Plan</span></legend>
             <div class="seg" id="seg"></div>
           </fieldset>
-          <p class="err" id="err" role="alert" hidden><span class="ar">ناقص اسمك أو السن أو المنطقة.</span><span class="en">Please add your name, your child's age and your area.</span></p>
-          <button class="btn wa block" type="submit">
-            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>
-            <span class="ar">احجزي على واتساب</span><span class="en">Reserve on WhatsApp</span>
-          </button>
-          <p class="fine"><span class="ar">واتساب هيفتح برسالة جاهزة، دوسي إرسال بس.</span><span class="en">WhatsApp opens with your message ready. Just tap send.</span></p>
+          <p class="err" id="err" role="alert" hidden></p>
+          <button class="btn block" type="submit" id="send"><span class="ar">احجزي دلوقتي</span><span class="en">Reserve now</span></button>
+          <p class="fine"><span class="ar">هنكلمك على واتساب خلال 24 ساعة نأكد معاكي.</span><span class="en">We'll message you on WhatsApp within 24 hours to confirm.</span></p>
         </form>
         <div class="done" id="done" hidden>
-          <h3><span class="ar">فاضل خطوة واحدة</span><span class="en">One last step</span></h3>
-          <p><span class="ar">ابعتي الرسالة على واتساب عشان نثبّت حجزك. لو واتساب مافتحش، دوسي هنا:</span><span class="en">Send the message on WhatsApp to lock in your box. If WhatsApp didn't open, tap here:</span></p>
-          <a class="btn wa" id="waAgain" href="#reserve" rel="noopener"><span class="ar">افتحي واتساب</span><span class="en">Open WhatsApp</span></a>
-          <button type="button" class="ghost" id="edit"><span class="ar">تعديل البيانات</span><span class="en">Edit details</span></button>
+          <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#F7E2D8"/><path d="M17 29l7 7 15-16" stroke="#B4472A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          <h3><span class="ar">تم الحجز، شكرًا!</span><span class="en">You're on the list. Thank you</span></h3>
+          <p><span class="ar">هنكلمك على واتساب خلال 24 ساعة عشان نأكد معاكي ونتفق على ميعاد التوصيل.</span><span class="en">We'll message you on WhatsApp within 24 hours to confirm and agree on a delivery day.</span></p>
+          <button type="button" class="ghost" id="edit"><span class="ar">حجز لطفل تاني</span><span class="en">Reserve for another child</span></button>
         </div>
       </div>
     </div>
@@ -420,8 +422,8 @@ footer img{height:30px;width:auto}
 <div class="bar" id="bar"><a class="btn block" href="#reserve"><span class="ar">احجزي صندوقك</span><span class="en">Reserve your box</span></a></div>
 
 <script>
-// The WhatsApp number is only used inside the link; it is never shown on the page.
-const WA = ["20", "1099", "958", "063"].join("");
+// Reservations go to the Google Sheet through its Apps Script web app (tools/sheet-script.gs)
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbytsA4Cc3R4bDd3ZbBc5KCH4qU-oLU5bkjCsHs59iZsFNAQpSJznjQVzdEEyumQdAvk/exec";
 
 const AGES = [
   {id:"0",
@@ -458,17 +460,19 @@ const T = {
   ar:{choose:"اختاري", learns:"بيتعلم إيه؟", name:"مثلًا: مريم",
     note:"دي أمثلة. الألعاب بتتغير كل شهر، ومعاهم كارت لعب ليكي.",
     title:"فكّة | ألعاب جديدة كل شهر على قد سن طفلك",
-    msg:(n,a,ar,p)=>`أهلًا فكّة، عايزة أحجز أول صندوق.\nالاسم: ${n}\nسن الطفل: ${a}\nالمنطقة: ${ar}\nالباقة: ${p}`},
+    missing:"ناقص اسمك أو رقمك أو السن أو المنطقة.", badPhone:"اكتبي رقم موبايل مصري صحيح، زي 01012345678.",
+    failed:"ماقدرناش نسجل الحجز. اتأكدي من النت وجربي تاني.", sending:"بنسجل حجزك…"},
   en:{choose:"Choose", learns:"What they'll practice", name:"e.g. Mariam",
     note:"These are examples. Toys change every month, and each box has a play card for you.",
     title:"Fakka | New toys every month, made for your child's age",
-    msg:(n,a,ar,p)=>`Hi Fakka, I'd like to reserve a founding box.\nName: ${n}\nChild's age: ${a}\nArea: ${ar}\nPlan: ${p}`}
+    missing:"Please add your name, number, your child's age and your area.", badPhone:"Please enter an Egyptian mobile number, like 01012345678.",
+    failed:"We couldn't save your reservation. Check your connection and try again.", sending:"Saving your reservation…"}
 };
 
 const $ = id => document.getElementById(id);
 const root = document.documentElement;
 const params = new URLSearchParams(location.search);
-// Where the visitor came from (e.g. ?from=fb-zayed); added to the WhatsApp message so you can count which post works
+// Where the visitor came from (e.g. ?from=fb-zayed); saved with the reservation so you can count which post works
 const FROM = (params.get("from") || params.get("utm_source") || "").replace(/[^\w-]/g, "").slice(0, 30);
 const state = {lang:"ar", tab:"2", age:null, plan:"1"};
 
@@ -517,22 +521,51 @@ $("prices").addEventListener("click", e => {
 });
 $("seg").addEventListener("change", e => { state.plan = e.target.value; renderPrices(); });
 
-$("form").addEventListener("submit", e => {
+// Accepts Arabic digits, spaces and +20 / 0020; returns 01xxxxxxxxx or "" if it isn't an Egyptian mobile
+function normalizePhone(v){
+  let p = v.replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d)).replace(/\D/g, "");
+  if(p.startsWith("0020")) p = p.slice(4); else if(p.startsWith("20")) p = p.slice(2);
+  if(p.length === 10 && p[0] === "1") p = "0" + p;
+  return /^01[0125]\d{8}$/.test(p) ? p : "";
+}
+function showErr(msg){ $("err").textContent = msg; $("err").hidden = !msg; }
+
+$("form").addEventListener("submit", async e => {
   e.preventDefault();
   const L = state.lang;
-  const name = $("name").value.trim(), age = $("age").value, area = $("area").value;
-  [["name",name],["age",age],["area",area]].forEach(([id,v]) => $(id).classList.toggle("invalid", !v));
-  if(!name || !age || !area){ $("err").hidden = false; return; }
-  $("err").hidden = true;
-  const ageLabel = AGES.find(a => a.id === age)[L].label;
-  let text = T[L].msg(name, ageLabel, AREAS[L][area], PLANS[state.plan][L].join(" · "));
-  if(FROM) text += `\n(${FROM})`;
-  const url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
-  $("waAgain").href = url;
-  $("form").hidden = true; $("done").hidden = false;
-  window.location.href = url;
+  const name = $("name").value.trim(), rawPhone = $("phone").value.trim(), age = $("age").value, area = $("area").value;
+  [["name",name],["phone",rawPhone],["age",age],["area",area]].forEach(([id,v]) => $(id).classList.toggle("invalid", !v));
+  if(!name || !rawPhone || !age || !area){ showErr(T[L].missing); return; }
+  const phone = normalizePhone(rawPhone);
+  $("phone").classList.toggle("invalid", !phone);
+  if(!phone){ showErr(T[L].badPhone); return; }
+  showErr("");
+
+  const btn = $("send"), label = btn.innerHTML;
+  btn.disabled = true; btn.textContent = T[L].sending;
+  try{
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 20000);
+    // text/plain keeps this a "simple" request, so Apps Script accepts it without a CORS preflight
+    const res = await fetch(SHEET_URL, {method:"POST", signal:ctrl.signal, body:JSON.stringify({
+      name, phone, age:AGES.find(a => a.id === age).en.label, area:AREAS.en[area],
+      plan:PLANS[state.plan].en.join(" · "), lang:L, from:FROM, website:$("website").value
+    })});
+    clearTimeout(timer);
+    const out = await res.json();
+    if(!out.ok) throw new Error("rejected");
+    $("form").hidden = true; $("done").hidden = false;
+    $("done").scrollIntoView({behavior:"smooth", block:"center"});
+  }catch(err){
+    showErr(T[L].failed);
+  }finally{
+    btn.disabled = false; btn.innerHTML = label;
+  }
 });
-$("edit").addEventListener("click", () => { $("done").hidden = true; $("form").hidden = false; });
+$("edit").addEventListener("click", () => {
+  $("name").value = ""; $("phone").value = ""; $("age").value = ""; state.age = null;
+  $("done").hidden = true; $("form").hidden = false;
+});
 
 // Header line on scroll; hide the phone bar while the form is on screen
 const header = document.querySelector("header");
