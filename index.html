@@ -4,332 +4,356 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>فكّة | ألعاب جديدة كل شهر على قد سن طفلك</title>
-<meta name="description" content="صندوق شهري فيه 3–4 ألعاب جديدة متختارة على قد سن طفلك، من 6 شهور لـ 5 سنين. القاهرة والجيزة. أول صندوق بـ 790 ج.م للعائلات المؤسسة.">
+<meta name="description" content="صندوق شهري فيه 3–4 ألعاب جديدة متختارة على قد سن طفلك، من 6 شهور لـ 5 سنين. القاهرة والجيزة. أول صندوق بـ 790 ج.م لأول 30 عيلة.">
 <meta property="og:title" content="فكّة | ألعاب جديدة كل شهر على قد سن طفلك">
 <meta property="og:description" content="3–4 ألعاب جديدة كل شهر، متختارة لمرحلة طفلك. أول صندوق بـ 790 ج.م بدل 990 لأول 30 عيلة.">
 <meta property="og:url" content="https://box.fakkaeg.com/">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='14' fill='%232E7DD7'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='32' fill='white' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://box.fakkaeg.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF7F0">
+<link rel="icon" type="image/svg+xml" href="brand/fakka-icon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@700;800&family=Readex+Pro:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#FFFFFF; --soft:#F6F7F9; --ink:#111827; --muted:#6B7280; --line:#E5E7EB;
-  --blue:#2E7DD7; --blue-soft:#EAF3FF;
-  --sun:#F5B800; --sun-soft:#FFF7DB;
-  --coral:#FF7A59; --coral-soft:#FFF1EB;
-  --mint:#1E9E74; --mint-soft:#E6F7F0;
-  --radius:20px;
-  --font:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --bg:#FBF7F0; --sand:#F4EDE2; --card:#FFFDF9; --ink:#2A2522; --muted:#6F655C; --line:#E7DDCF;
+  --accent:#D9603B; --accent-ink:#B4472A; --accent-soft:#F7E2D8;
+  --display:"Baloo Bhaijaan 2","Readex Pro",system-ui,sans-serif;
+  --body:"Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  --z-header:20; --z-bar:30;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+/* Faint paper grain so the cream doesn't feel flat */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 :root[lang="ar"] .en, :root[lang="en"] .ar{display:none !important}
-h1,h2,h3{margin:0;line-height:1.2;text-wrap:balance;font-weight:700}
-p{margin:0}
-img,svg{display:block}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:800;line-height:1.15;text-wrap:balance}
+:root[lang="ar"] h1, :root[lang="ar"] h2{line-height:1.3}
+p{margin:0;text-wrap:pretty}
+svg,img{display:block}
 button{font:inherit;color:inherit}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;inset-inline-start:12px;top:-60px;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:8px;z-index:50;text-decoration:none}
+.skip:focus{top:12px}
 
-.wrap{width:100%;max-width:1040px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
-section{scroll-margin-top:72px}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+section{scroll-margin-top:76px}
+.eyebrow{font-size:.9rem;color:var(--accent-ink);font-weight:500}
 
 /* Header */
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+header{position:sticky;top:0;z-index:var(--z-header);background:var(--bg);border-bottom:1px solid transparent;transition:border-color .2s}
 header.scrolled{border-bottom-color:var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.25rem;text-decoration:none}
-.logo i{width:30px;height:30px;border-radius:9px;background:var(--blue);display:grid;place-items:center;color:#fff;font-style:normal;font-size:1rem}
-.nav-r{display:flex;align-items:center;gap:10px}
-.lang{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 14px;font-size:.9rem;font-weight:500;cursor:pointer}
-.nav-cta{background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:.9rem;font-weight:500;text-decoration:none}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo img{height:38px;width:auto}
+.nav-r{display:flex;align-items:center;gap:18px}
+.lang{background:none;border:0;padding:6px 2px;font-size:.92rem;color:var(--muted);cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}
+.lang:hover{color:var(--ink)}
+.nav-cta{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--accent-ink);border-bottom:2px solid currentColor;padding-bottom:1px}
 @media (max-width:560px){.nav-cta{display:none}}
 
-/* Hero */
-.hero{padding-block:56px 40px;text-align:center}
-.pill{display:inline-flex;align-items:center;gap:8px;background:var(--sun-soft);color:#7A5B00;border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:500}
-.pill b{font-weight:700}
-.hero h1{font-size:clamp(2.3rem,7vw,4rem);margin-top:20px;letter-spacing:-.01em}
-:root[lang="en"] .hero h1{letter-spacing:-.025em}
-.hero h1 em{font-style:normal;color:var(--blue)}
-.hero .sub{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:560px;margin:18px auto 0}
-.cta-row{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--blue);color:#fff;font-weight:600;font-size:1.05rem;border-radius:999px;padding:16px 30px;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 20px -8px rgba(46,125,215,.6)}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -8px rgba(46,125,215,.6)}
-.btn:active{transform:translateY(0)}
-.btn.wa{background:#1FAF55;box-shadow:0 6px 20px -8px rgba(31,175,85,.6)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--accent-ink);color:#fff;font-weight:600;font-size:1.05rem;border-radius:14px;padding:15px 26px;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 10px 24px -14px rgba(180,71,42,.8)}
+.btn:hover{background:#A33E23}
+.btn:active{transform:translateY(1px)}
 .btn.block{width:100%}
-.reassure{color:var(--muted);font-size:.9rem}
-.art{margin:44px auto 0;max-width:460px}
-.art svg{width:100%;height:auto}
+.btn.wa{background:#1E8E4A;box-shadow:0 10px 24px -14px rgba(30,142,74,.8)}
+.btn.wa:hover{background:#187A3F}
+.link{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:1.5px solid var(--line);padding-bottom:2px;transition:border-color .2s}
+.link:hover{border-color:var(--ink)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:48px 72px;position:relative;z-index:2}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-block:20px 56px;gap:20px}}
+.offer{display:inline-flex;align-items:center;gap:10px;font-size:.95rem}
+.offer::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.offer s{color:var(--muted)}
+.hero h1{font-size:clamp(2.5rem,6.4vw,4.1rem);margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent);display:block}
+.hero .sub{color:var(--muted);font-size:clamp(1.05rem,2.2vw,1.2rem);max-width:34em;margin-top:18px}
+.actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}
+.note{color:var(--muted);font-size:.9rem;margin-top:18px}
+.art svg{width:100%;height:auto;max-width:440px;margin-inline:auto;direction:ltr}
+@media (max-width:820px){.art{order:-1}.art svg{max-width:280px}}
 @media (prefers-reduced-motion:no-preference){
-  .float{animation:float 5s ease-in-out infinite}
-  .float.d2{animation-delay:-1.6s}.float.d3{animation-delay:-3.2s}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .bob{animation:bob 6s ease-in-out infinite}
+  .bob.b2{animation-delay:-2s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 }
 
 /* Sections */
-.block-sec{padding-block:72px}
-.soft{background:var(--soft)}
-.head{text-align:center;max-width:620px;margin:0 auto 36px}
-.head h2{font-size:clamp(1.75rem,4.5vw,2.5rem)}
-.head p{color:var(--muted);margin-top:12px;font-size:1.05rem}
+main{position:relative;z-index:2}
+.sec{padding-block:80px 88px}
+.sand{background:var(--sand)}
+.sec-head{max-width:36em;margin-bottom:40px}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,2.7rem)}
+.sec-head p{color:var(--muted);margin-top:12px;font-size:1.05rem}
+.sec-head .eyebrow{color:var(--accent-ink);margin:0 0 6px;font-size:.9rem}
 
-/* Age picker */
-.ages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:720px;margin:0 auto}
-@media (max-width:620px){.ages{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.age{border:2px solid var(--line);background:var(--bg);border-radius:16px;padding:14px 10px;cursor:pointer;text-align:center;transition:border-color .15s,background .15s}
-.age b{display:block;font-size:1.1rem}
-.age small{color:var(--muted);font-size:.82rem}
-.age[aria-pressed="true"]{border-color:var(--c);background:var(--cs)}
-.box-card{max-width:720px;margin:18px auto 0;background:var(--cs,var(--blue-soft));border-radius:var(--radius);padding:28px;display:grid;gap:18px;transition:background .25s}
-@media (max-width:520px){.box-card{padding:20px}}
-.box-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.box-top h3{font-size:1.3rem}
-.box-top span{font-size:.85rem;color:var(--muted)}
-.toys{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-@media (max-width:520px){.toys{grid-template-columns:1fr}}
-.toys li{background:rgba(255,255,255,.85);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center}
-.toys li i{flex:none;width:34px;height:34px;border-radius:10px;background:var(--c,var(--blue));display:grid;place-items:center;color:#fff;font-style:normal;font-weight:700;font-size:.9rem}
-.toys li div{display:grid}
-.toys li b{font-weight:500;font-size:.98rem}
-.toys li small{color:var(--muted);font-size:.84rem}
-.skills{display:flex;flex-wrap:wrap;gap:8px}
-.skills span{background:rgba(255,255,255,.85);border-radius:999px;padding:4px 12px;font-size:.85rem}
-.box-note{font-size:.88rem;color:var(--muted)}
+/* Ages */
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px;width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+@media (max-width:520px){.tabs{width:100%}.tabs .tab{flex:1;padding:9px 4px;font-size:.86rem}}
+.tab{border:0;background:none;border-radius:10px;padding:9px 16px;cursor:pointer;white-space:nowrap;font-size:.95rem;color:var(--muted);transition:background .2s,color .2s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.inside{display:grid;grid-template-columns:1.3fr .7fr;gap:48px;margin-top:32px;align-items:start}
+@media (max-width:820px){.inside{grid-template-columns:1fr;gap:28px}}
+.toys{list-style:none;margin:0;padding:0;counter-reset:t}
+.toys li{display:grid;grid-template-columns:44px 1fr;gap:0 14px;padding:16px 0;border-top:1px solid var(--line)}
+.toys li:last-child{border-bottom:1px solid var(--line)}
+.toys li::before{counter-increment:t;content:"0" counter(t);grid-row:span 2;font-family:var(--display);font-weight:800;font-size:1.3rem;color:var(--accent);line-height:1.5}
+.toys b{font-weight:500;font-size:1.08rem}
+.toys small{color:var(--muted);font-size:.93rem}
+.learns{background:var(--card);border-radius:18px;padding:24px;display:grid;gap:12px}
+.learns h3{font-size:1.15rem}
+.learns ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.learns li{display:flex;gap:10px;align-items:center}
+.learns li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.learns p{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:12px}
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0;counter-reset:s}
-@media (max-width:760px){.steps{grid-template-columns:1fr}}
-.steps li{background:var(--soft);border-radius:var(--radius);padding:24px;display:grid;gap:8px;align-content:start}
-.steps li::before{counter-increment:s;content:counter(s);width:36px;height:36px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;font-weight:700;margin-bottom:6px}
-.steps h3{font-size:1.1rem}
-.steps p{color:var(--muted);font-size:.95rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;top:26px;inset-inline:26px;height:1.5px;background:repeating-linear-gradient(to left,var(--line) 0 8px,transparent 8px 14px)}
+@media (max-width:820px){.steps{grid-template-columns:1fr;gap:28px}.steps::before{display:none}}
+.steps li{position:relative;display:grid;gap:8px;align-content:start}
+.steps li::before{counter-increment:s;content:counter(s);width:52px;height:52px;border-radius:50%;background:var(--bg);border:1.5px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.4rem;margin-bottom:10px}
+.steps h3{font-size:1.25rem}
+.steps p{color:var(--muted)}
 
 /* Why */
-.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 40px;max-width:820px;margin:0 auto}
-@media (max-width:640px){.why{grid-template-columns:1fr;gap:24px}}
-.why > div{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
-.why svg{width:44px;height:44px}
-.why h3{font-size:1.08rem;margin-bottom:4px}
-.why p{color:var(--muted);font-size:.95rem}
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+@media (max-width:820px){.why{grid-template-columns:1fr;gap:32px}}
+.why blockquote{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(1.7rem,3.8vw,2.4rem);line-height:1.35}
+.why blockquote em{font-style:normal;color:var(--accent)}
+.points{display:grid;gap:26px}
+.points div{padding-inline-start:20px;border-inline-start:2px solid var(--accent-soft)}
+.points h3{font-family:var(--body);font-weight:600;font-size:1.08rem;margin-bottom:4px}
+.points p{color:var(--muted)}
 
-/* Plans */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:880px;margin:0 auto}
-@media (max-width:760px){.plans{grid-template-columns:1fr;gap:22px}}
-.plan{position:relative;border:2px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:6px;background:var(--bg);cursor:pointer;text-align:start;transition:border-color .15s}
-.plan[aria-pressed="true"]{border-color:var(--blue)}
-.plan h3{font-size:1.05rem;font-weight:500;color:var(--muted)}
-.plan .p{font-size:2rem;font-weight:700;font-variant-numeric:tabular-nums}
-.plan .p small{font-size:1rem;font-weight:500;color:var(--muted)}
-.plan .per{color:var(--muted);font-size:.92rem}
-.plan .tag{position:absolute;top:-12px;inset-inline-start:20px;background:var(--mint);color:#fff;border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:500}
-.founding{max-width:880px;margin:18px auto 0;background:var(--sun-soft);border-radius:16px;padding:16px 20px;display:flex;gap:12px;align-items:center;color:#5C4500}
-.founding svg{flex:none;width:28px;height:28px}
+/* Prices */
+.prices{display:grid;max-width:760px}
+.price{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:center;padding:20px 8px;border:0;border-top:1px solid var(--line);background:none;text-align:start;cursor:pointer;transition:background .2s}
+.price:last-child{border-bottom:1px solid var(--line)}
+.price:hover{background:var(--card)}
+.price b{font-weight:600;font-size:1.1rem;display:flex;gap:10px;align-items:center}
+.price .save{font-size:.78rem;font-weight:500;color:var(--accent-ink);background:var(--accent-soft);border-radius:6px;padding:1px 8px}
+.price small{color:var(--muted);font-size:.92rem}
+.price .amt{grid-column:2;grid-row:1 / span 2;font-family:var(--display);font-weight:800;font-size:1.7rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price .amt i{font-style:normal;font-family:var(--body);font-weight:400;font-size:.95rem;color:var(--muted);margin-inline-start:6px}
+.price[aria-pressed="true"]{background:var(--card)}
+.price[aria-pressed="true"] .amt{color:var(--accent-ink)}
+.founding{margin-top:22px;max-width:760px;display:flex;gap:14px;align-items:flex-start;background:var(--accent-soft);border-radius:14px;padding:16px 18px}
+.founding svg{flex:none;width:22px;height:auto;margin-top:3px}
 
 /* Reserve */
-.reserve{max-width:560px;margin:0 auto;background:var(--bg);border-radius:24px;padding:28px;box-shadow:0 1px 2px rgba(17,24,39,.04),0 20px 40px -24px rgba(17,24,39,.18)}
-@media (max-width:520px){.reserve{padding:22px}}
-form{display:grid;gap:16px}
+.reserve-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+@media (max-width:820px){.reserve-grid{grid-template-columns:1fr;gap:28px}}
+.reserve-grid .sec-head{margin-bottom:0}
+.promise{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:10px;color:var(--muted)}
+.promise li{display:flex;gap:10px;align-items:baseline}
+.promise li::before{content:"✓";color:var(--accent-ink);font-weight:600}
+.card{background:var(--card);border-radius:20px;padding:28px;box-shadow:0 1px 0 var(--line),0 24px 48px -32px rgba(90,60,30,.35)}
+@media (max-width:520px){.card{padding:22px}}
+form{display:grid;gap:18px}
 .field{display:grid;gap:6px}
-.field label,.field legend{font-weight:500;font-size:.95rem;padding:0;margin-bottom:6px}
-.field label{margin-bottom:0}
+.field>label,legend{font-weight:500;font-size:.95rem;padding:0}
+legend{margin-bottom:6px}
 fieldset{border:0;margin:0;padding:0;min-width:0}
-input[type=text],select{font:inherit;font-size:16px;width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);appearance:none;-webkit-appearance:none}
-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 14px center;padding-inline-end:40px}
+input[type=text],select{font:inherit;font-size:16px;width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);appearance:none;-webkit-appearance:none;transition:border-color .2s,box-shadow .2s}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236F655C' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 14px center;padding-inline-end:40px}
 :root[dir="ltr"] select{background-position:right 14px center}
-input:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .seg label{position:relative;cursor:pointer}
-.seg input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
-.seg span{display:grid;text-align:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 6px;font-size:.9rem;line-height:1.35}
+.seg input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.seg span{display:grid;text-align:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 6px;font-size:.92rem;line-height:1.4;background:#fff;transition:border-color .2s,background .2s}
 .seg span small{color:var(--muted);font-size:.8rem}
-.seg input:checked+span{border-color:var(--blue);background:var(--blue-soft)}
-.seg input:focus-visible+span{outline:3px solid var(--blue);outline-offset:2px}
-.invalid{border-color:#DC4A3D !important}
-.err{color:#C2362B;font-size:.9rem}
-.fine{color:var(--muted);font-size:.85rem;text-align:center}
-.done{display:grid;gap:14px;text-align:center;justify-items:center}
-.done svg{width:56px;height:56px}
-.done h3{font-size:1.35rem}
-.done p{color:var(--muted)}
+.seg input:checked+span{border-color:var(--accent);background:var(--accent-soft)}
+.seg input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.invalid{border-color:#C0392B !important}
+.err{color:#B03224;font-size:.92rem}
+.fine{color:var(--muted);font-size:.86rem;text-align:center}
+.done{display:grid;gap:14px;text-align:center;justify-items:center;padding-block:8px}
+.done h3{font-size:1.5rem}
+.done p{color:var(--muted);max-width:28em}
+.ghost{background:none;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:4px;cursor:pointer;font-size:.92rem}
 
 /* FAQ */
-.faq{max-width:720px;margin:0 auto;display:grid}
-.faq details{border-bottom:1px solid var(--line);padding:18px 0}
-.faq summary{cursor:pointer;font-weight:500;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--muted);font-size:1.4rem;line-height:1;transition:transform .2s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq p{color:var(--muted);margin-top:10px}
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 56px}
+@media (max-width:820px){.faq{grid-template-columns:1fr;gap:28px}}
+.faq h3{font-family:var(--body);font-weight:600;font-size:1.08rem;margin-bottom:6px}
+.faq p{color:var(--muted)}
 
-/* Final + footer */
-.final{text-align:center;padding-block:80px}
-.final h2{font-size:clamp(1.8rem,5vw,2.6rem)}
-.final p{color:var(--muted);margin:12px auto 28px;max-width:480px}
-footer{border-top:1px solid var(--line);padding-block:28px calc(96px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.88rem;text-align:center}
-@media (min-width:761px){footer{padding-bottom:28px}}
+/* Closing + footer */
+.closing{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.closing h2{font-size:clamp(1.8rem,4.4vw,2.6rem);max-width:16em}
+footer{position:relative;z-index:2;border-top:1px solid var(--line);padding-block:32px calc(100px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.9rem}
+@media (min-width:821px){footer{padding-bottom:36px}}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer img{height:30px;width:auto}
 
-/* Sticky mobile bar */
-.bar{position:fixed;inset-inline:0;bottom:0;z-index:30;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transition:transform .25s}
+/* Sticky phone bar */
+.bar{position:fixed;inset-inline:0;bottom:0;z-index:var(--z-bar);padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);transition:transform .3s}
 .bar.hide{transform:translateY(110%)}
-@media (min-width:761px){.bar{display:none}}
+@media (min-width:821px){.bar{display:none}}
 </style>
 </head>
 <body>
+<a class="skip" href="#reserve"><span class="ar">روحي للحجز</span><span class="en">Skip to reservation</span></a>
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#" aria-label="Fakka"><i>F</i><span class="ar">فكّة</span><span class="en">Fakka</span></a>
+    <a class="logo" href="#"><img src="brand/fakka-logo.svg" alt="Fakka فكّة" width="100" height="38"></a>
     <div class="nav-r">
-      <button class="lang" id="lang" type="button"><span class="ar" lang="en">English</span><span class="en" lang="ar">عربي</span></button>
       <a class="nav-cta" href="#reserve"><span class="ar">احجزي صندوقك</span><span class="en">Reserve a box</span></a>
+      <button class="lang" id="lang" type="button"><span class="ar" lang="en">English</span><span class="en" lang="ar">عربي</span></button>
     </div>
   </div>
 </header>
 
 <main>
   <!-- Hero -->
-  <section class="hero wrap">
-    <div class="pill">
-      <span class="ar"><b>أول 30 عيلة</b> · أول صندوق بـ 790 ج.م بدل 990</span>
-      <span class="en"><b>First 30 families</b> · first box 790 EGP instead of 990</span>
-    </div>
-    <h1>
-      <span class="ar">ألعاب جديدة كل شهر،<br><em>على قد سن طفلك.</em></span>
-      <span class="en">New toys every month,<br><em>made for your child's age.</em></span>
-    </h1>
-    <p class="sub">
-      <span class="ar">صندوق فيه 3–4 ألعاب جديدة ومتغلّفة، بنختارها على حسب المرحلة اللي طفلك فيها دلوقتي. من 6 شهور لـ 5 سنين، وكلها بتاعته.</span>
-      <span class="en">A box of 3–4 brand-new, sealed toys, picked for the stage your child is at right now. From 6 months to 5 years, and every toy is theirs to keep.</span>
-    </p>
-    <div class="cta-row">
-      <a class="btn" href="#reserve"><span class="ar">احجزي أول صندوق</span><span class="en">Reserve your first box</span></a>
-      <p class="reassure"><span class="ar">مش هتدفعي حاجة دلوقتي · الدفع عند الاستلام أو InstaPay</span><span class="en">Nothing to pay now · cash on delivery or InstaPay</span></p>
+  <section class="wrap hero">
+    <div>
+      <p class="offer"><span class="ar">لأول 30 عيلة: أول صندوق بـ 790 ج.م بدل <s>990</s></span><span class="en">First 30 families: first box 790 EGP, not <s>990</s></span></p>
+      <h1><span class="ar">ألعاب جديدة كل شهر، <em>على قد سن طفلك.</em></span><span class="en">New toys every month, <em>made for your child's age.</em></span></h1>
+      <p class="sub"><span class="ar">صندوق فيه 3 لـ 4 ألعاب جديدة ومتغلّفة، بنختارها على حسب المرحلة اللي طفلك فيها دلوقتي. من 6 شهور لـ 5 سنين، والألعاب كلها بتاعته.</span><span class="en">A box of 3 to 4 brand-new, sealed toys, picked for the stage your child is at right now. From 6 months to 5 years, and every toy is theirs to keep.</span></p>
+      <div class="actions">
+        <a class="btn" href="#reserve"><span class="ar">احجزي أول صندوق</span><span class="en">Reserve your first box</span></a>
+        <a class="link" href="#inside"><span class="ar">شوفي إيه اللي في الصندوق</span><span class="en">See what's inside</span></a>
+      </div>
+      <p class="note"><span class="ar">مش هتدفعي حاجة دلوقتي. الدفع كاش عند الاستلام أو InstaPay.</span><span class="en">Nothing to pay now. Cash on delivery or InstaPay.</span></p>
     </div>
     <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 400 260" fill="none">
-        <ellipse cx="200" cy="244" rx="150" ry="10" fill="#F1F2F4"/>
-        <g class="float"><g transform="rotate(-12 143 77)"><rect x="112" y="46" width="62" height="62" rx="12" fill="#2E7DD7"/><text x="143" y="89" text-anchor="middle" font-family="Readex Pro,Arial" font-weight="700" font-size="30" fill="#fff">ب</text></g></g>
-        <g class="float d2"><circle cx="212" cy="62" r="32" fill="#FF7A59"/><path d="M186 54c16 8 36 8 52 0" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/></g>
-        <g class="float d3"><path d="M268 38l32 56h-64z" fill="#1E9E74" stroke="#1E9E74" stroke-width="8" stroke-linejoin="round"/></g>
-        <g class="float d2"><circle cx="322" cy="128" r="8" fill="#F5B800"/></g>
-        <g class="float"><circle cx="80" cy="124" r="6" fill="#2E7DD7" opacity=".35"/></g>
-        <path d="M96 116l-30-26h150l84 26z" fill="#FFD666"/>
-        <path d="M304 116l30-26H226z" fill="#FFE08A"/>
-        <path d="M96 116h208l-16 118a10 10 0 0 1-10 9H122a10 10 0 0 1-10-9z" fill="#FFC83D"/>
-        <path d="M96 116h208l-4 26H100z" fill="#F5B800"/>
-        <rect x="166" y="166" width="68" height="40" rx="11" fill="#fff" opacity=".92"/>
-        <text x="200" y="193" text-anchor="middle" font-family="Readex Pro,Arial" font-weight="700" font-size="17" fill="#B07F00">fakka</text>
+      <svg viewBox="0 0 440 390" fill="none">
+        <ellipse cx="220" cy="372" rx="170" ry="12" fill="#EFE6D8"/>
+        <g class="bob">
+          <rect x="176" y="40" width="10" height="120" rx="5" fill="#C99C6B"/>
+          <circle cx="181" cy="34" r="16" fill="#D9603B"/>
+          <rect x="150" y="62" width="62" height="24" rx="12" fill="#E98A69"/>
+          <rect x="138" y="90" width="86" height="27" rx="13.5" fill="#D9603B"/>
+          <rect x="126" y="121" width="110" height="30" rx="15" fill="#B4472A"/>
+        </g>
+        <g class="bob b2">
+          <g transform="rotate(8 292 118)"><rect x="252" y="78" width="80" height="80" rx="10" fill="#EAD4B2" stroke="#C9A27A" stroke-width="3"/>
+          <text x="292" y="136" text-anchor="middle" font-family="Baloo Bhaijaan 2,Arial" font-weight="800" font-size="46" fill="#2A2522">ب</text></g>
+        </g>
+        <circle cx="106" cy="150" r="26" fill="#F2C7B4"/><path d="M84 140c14 8 30 8 44 0" stroke="#FBF7F0" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70 170l-26-34h120l30 34z" fill="#E6C69D"/>
+        <path d="M370 170l26-34H276l-30 34z" fill="#E6C69D"/>
+        <path d="M70 170h300l-18 186a12 12 0 0 1-12 11H100a12 12 0 0 1-12-11z" fill="#D8B48A"/>
+        <path d="M70 170h300l-3 30H73z" fill="#C9A27A"/>
+        <g transform="translate(150 232) scale(.62)" fill="#7A5634" opacity=".85">
+          <circle cx="48" cy="16" r="12"/><rect x="30" y="34" width="36" height="16" rx="8"/><rect x="20" y="54" width="56" height="18" rx="9"/><rect x="10" y="76" width="76" height="20" rx="10"/><rect x="2" y="100" width="92" height="14" rx="7"/>
+        </g>
+        <text x="222" y="294" font-family="Baloo Bhaijaan 2,Arial" font-weight="800" font-size="34" fill="#7A5634" opacity=".85">fakka</text>
       </svg>
     </div>
   </section>
 
-  <!-- Age picker -->
-  <section class="block-sec soft" id="inside">
+  <!-- What's inside -->
+  <section class="sec sand" id="inside">
     <div class="wrap">
-      <div class="head">
+      <div class="sec-head">
+        <p class="eyebrow"><span class="ar">جوّه الصندوق</span><span class="en">Inside the box</span></p>
         <h2><span class="ar">طفلك عنده كام؟</span><span class="en">How old is your child?</span></h2>
         <p><span class="ar">اختاري السن وشوفي مثال للي ممكن ييجي في صندوقه.</span><span class="en">Pick an age to see an example of what could be in their box.</span></p>
       </div>
-      <div class="ages" id="ages" role="group" aria-label="Age"></div>
-      <div class="box-card" id="boxCard" aria-live="polite"></div>
+      <div class="tabs" id="tabs" role="tablist" aria-label="Age"></div>
+      <div class="inside" id="inside-panel" role="tabpanel" aria-live="polite"></div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="block-sec">
+  <section class="sec">
     <div class="wrap">
-      <div class="head">
-        <h2><span class="ar">بسيطة جدًا</span><span class="en">How it works</span></h2>
+      <div class="sec-head">
+        <p class="eyebrow"><span class="ar">إزاي بتشتغل</span><span class="en">How it works</span></p>
+        <h2><span class="ar">تلات خطوات، وخلاص.</span><span class="en">Three steps, that's it.</span></h2>
       </div>
       <ol class="steps">
         <li><h3><span class="ar">قوليلنا سن طفلك</span><span class="en">Tell us your child's age</span></h3><p><span class="ar">بنختار الألعاب على حسب المرحلة اللي هو فيها، مش أي ألعاب وخلاص.</span><span class="en">We pick toys for the stage they're in, not just any toys.</span></p></li>
-        <li><h3><span class="ar">الصندوق يوصلك البيت</span><span class="en">The box comes to your door</span></h3><p><span class="ar">3–4 ألعاب جديدة متغلّفة، ومعاهم كارت بيشرح كل لعبة بتساعد طفلك في إيه.</span><span class="en">3–4 new, sealed toys, plus a card on how each one helps your child grow.</span></p></li>
-        <li><h3><span class="ar">صندوق جديد كل شهر</span><span class="en">A new box every month</span></h3><p><span class="ar">الصندوق بيكبر مع طفلك. تقدري تأجلي أو تلغي أي شهر برسالة واتساب.</span><span class="en">The box grows with your child. Skip or cancel any month with a WhatsApp message.</span></p></li>
+        <li><h3><span class="ar">الصندوق يوصلك البيت</span><span class="en">The box comes to your door</span></h3><p><span class="ar">3 لـ 4 ألعاب جديدة متغلّفة، ومعاهم كارت بيقولك كل لعبة بتفيد طفلك في إيه.</span><span class="en">3 to 4 new, sealed toys, plus a card on how each one helps your child.</span></p></li>
+        <li><h3><span class="ar">صندوق جديد كل شهر</span><span class="en">A new box every month</span></h3><p><span class="ar">الصندوق بيكبر مع طفلك. تأجلي أو تلغي أي شهر برسالة واتساب.</span><span class="en">The box grows with your child. Skip or cancel any month with a WhatsApp message.</span></p></li>
       </ol>
     </div>
   </section>
 
   <!-- Why -->
-  <section class="block-sec soft">
-    <div class="wrap">
-      <div class="head">
-        <h2><span class="ar">ليه فكّة؟</span><span class="en">Why Fakka?</span></h2>
-        <p><span class="ar">عشان الألعاب اللي بتتنسي بعد يومين بتضيّع فلوس ووقت.</span><span class="en">Because toys that get ignored after two days waste money and time.</span></p>
-      </div>
-      <div class="why">
-        <div>
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="#EAF3FF"/><path d="M14 30V20m8 10V14m8 16v-7" stroke="#2E7DD7" stroke-width="3.2" stroke-linecap="round"/></svg>
-          <div><h3><span class="ar">على قد مرحلته</span><span class="en">Right for their stage</span></h3><p><span class="ar">كل لعبة متختارة لمهارة طفلك بيتعلمها دلوقتي: المسك، الأشكال، الكلام، العدّ.</span><span class="en">Each toy matches a skill they're learning now: grasping, shapes, words, counting.</span></p></div>
-        </div>
-        <div>
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="#E6F7F0"/><path d="M13 22.5l6 6 12-13" stroke="#1E9E74" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          <div><h3><span class="ar">جديدة ومتغلّفة</span><span class="en">New and sealed</span></h3><p><span class="ar">مفيش ألعاب مستعملة ولا مرتجع. اللعبة بتاعة طفلك على طول.</span><span class="en">Nothing used, no returns. Every toy is your child's to keep.</span></p></div>
-        </div>
-        <div>
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="#FFF7DB"/><rect x="13" y="12" width="18" height="21" rx="3" stroke="#C99400" stroke-width="3" fill="none"/><path d="M17.5 19h9m-9 5h6" stroke="#C99400" stroke-width="3" stroke-linecap="round"/></svg>
-          <div><h3><span class="ar">كارت لعب ليكي</span><span class="en">A play card for you</span></h3><p><span class="ar">أفكار سهلة تلعبيها معاه بألعاب الشهر، وكل لعبة بتفيده في إيه.</span><span class="en">Easy games to play together with this month's toys, and what each toy teaches.</span></p></div>
-        </div>
-        <div>
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="13" fill="#FFF1EB"/><path d="M22 31s-9-5.2-9-11.4A4.8 4.8 0 0 1 22 17a4.8 4.8 0 0 1 9 2.6C31 25.8 22 31 22 31z" fill="#FF7A59"/></svg>
-          <div><h3><span class="ar">من غير مشاوير</span><span class="en">No shopping trips</span></h3><p><span class="ar">مش محتاجة تلفّي المحلات وتحتاري. الصندوق بيوصل لحد باب البيت.</span><span class="en">No more searching stores and guessing. The box comes to your door.</span></p></div>
-        </div>
+  <section class="sec sand">
+    <div class="wrap why">
+      <blockquote><span class="ar">اللعبة اللي بتتنسي بعد يومين <em>فلوس راحت على الفاضي.</em></span><span class="en">A toy that's forgotten after two days <em>is money gone for nothing.</em></span></blockquote>
+      <div class="points">
+        <div><h3><span class="ar">على قد مرحلته</span><span class="en">Right for their stage</span></h3><p><span class="ar">كل لعبة متختارة لحاجة طفلك بيتعلمها دلوقتي: المسك، الأشكال، الكلام، العدّ.</span><span class="en">Each toy matches something they're learning now: grasping, shapes, words, counting.</span></p></div>
+        <div><h3><span class="ar">جديدة ومتغلّفة</span><span class="en">New and sealed</span></h3><p><span class="ar">مفيش حاجة مستعملة ولا مرتجع. اللعبة بتاعة طفلك على طول.</span><span class="en">Nothing used, no returns. Every toy is your child's to keep.</span></p></div>
+        <div><h3><span class="ar">كارت لعب ليكي</span><span class="en">A play card for you</span></h3><p><span class="ar">أفكار سهلة تلعبيها معاه بألعاب الشهر، في خمس دقايق.</span><span class="en">Easy five-minute games to play together with this month's toys.</span></p></div>
+        <div><h3><span class="ar">من غير لفّ على المحلات</span><span class="en">No store-hopping</span></h3><p><span class="ar">مش محتاجة تحتاري تجيبي إيه. الصندوق بيوصل لحد الباب.</span><span class="en">No more guessing what to buy. The box comes to your door.</span></p></div>
       </div>
     </div>
   </section>
 
-  <!-- Plans -->
-  <section class="block-sec" id="plans">
+  <!-- Prices -->
+  <section class="sec" id="plans">
     <div class="wrap">
-      <div class="head">
-        <h2><span class="ar">اختاري الباقة</span><span class="en">Choose a plan</span></h2>
+      <div class="sec-head">
+        <p class="eyebrow"><span class="ar">الأسعار</span><span class="en">Prices</span></p>
+        <h2><span class="ar">اختاري اللي يناسبك</span><span class="en">Choose what suits you</span></h2>
         <p><span class="ar">التوصيل في القاهرة والجيزة.</span><span class="en">Delivery in Cairo and Giza.</span></p>
       </div>
-      <div class="plans" id="planCards">
-        <button type="button" class="plan" data-plan="1" aria-pressed="true">
-          <h3><span class="ar">شهري</span><span class="en">Monthly</span></h3>
-          <div class="p">990 <small><span class="ar">ج.م</span><span class="en">EGP</span></small></div>
-          <div class="per"><span class="ar">تلغي في أي وقت</span><span class="en">Cancel anytime</span></div>
+      <div class="prices" id="prices">
+        <button type="button" class="price" data-plan="1" aria-pressed="true">
+          <b><span class="ar">كل شهر</span><span class="en">Monthly</span></b>
+          <span class="amt">990<i><span class="ar">ج.م</span><span class="en">EGP</span></i></span>
+          <small><span class="ar">تلغي في أي وقت</span><span class="en">Cancel anytime</span></small>
         </button>
-        <button type="button" class="plan" data-plan="3" aria-pressed="false">
-          <span class="tag"><span class="ar">وفّري 6%</span><span class="en">Save 6%</span></span>
-          <h3><span class="ar">3 شهور</span><span class="en">3 months</span></h3>
-          <div class="p">2,790 <small><span class="ar">ج.م</span><span class="en">EGP</span></small></div>
-          <div class="per"><span class="ar">930 ج.م للصندوق</span><span class="en">930 EGP a box</span></div>
+        <button type="button" class="price" data-plan="3" aria-pressed="false">
+          <b><span class="ar">3 شهور</span><span class="en">3 months</span> <span class="save"><span class="ar">وفّري 6%</span><span class="en">save 6%</span></span></b>
+          <span class="amt">2,790<i><span class="ar">ج.م</span><span class="en">EGP</span></i></span>
+          <small><span class="ar">يعني 930 ج.م للصندوق</span><span class="en">That's 930 EGP a box</span></small>
         </button>
-        <button type="button" class="plan" data-plan="6" aria-pressed="false">
-          <span class="tag"><span class="ar">وفّري 10%</span><span class="en">Save 10%</span></span>
-          <h3><span class="ar">6 شهور</span><span class="en">6 months</span></h3>
-          <div class="p">5,340 <small><span class="ar">ج.م</span><span class="en">EGP</span></small></div>
-          <div class="per"><span class="ar">890 ج.م للصندوق</span><span class="en">890 EGP a box</span></div>
+        <button type="button" class="price" data-plan="6" aria-pressed="false">
+          <b><span class="ar">6 شهور</span><span class="en">6 months</span> <span class="save"><span class="ar">وفّري 10%</span><span class="en">save 10%</span></span></b>
+          <span class="amt">5,340<i><span class="ar">ج.م</span><span class="en">EGP</span></i></span>
+          <small><span class="ar">يعني 890 ج.م للصندوق</span><span class="en">That's 890 EGP a box</span></small>
         </button>
       </div>
       <div class="founding">
-        <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3l3.2 6.6 7.3 1-5.3 5.1 1.3 7.2L14 19.5l-6.5 3.4 1.3-7.2L3.5 10.6l7.3-1z" fill="#F5B800"/></svg>
-        <p><span class="ar"><b>عرض العائلات المؤسسة:</b> أول صندوق بـ 790 ج.م بدل 990، لأول 30 صندوق بس.</span><span class="en"><b>Founding families:</b> your first box is 790 EGP instead of 990, for the first 30 boxes only.</span></p>
+        <svg viewBox="0 0 96 116" aria-hidden="true"><g fill="#B4472A"><circle cx="48" cy="16" r="12"/><rect x="30" y="34" width="36" height="16" rx="8"/><rect x="20" y="54" width="56" height="18" rx="9"/><rect x="10" y="76" width="76" height="20" rx="10"/><rect x="2" y="100" width="92" height="14" rx="7"/></g></svg>
+        <p><span class="ar"><b>العائلات المؤسسة:</b> أول صندوق بـ 790 ج.م بدل 990، لأول 30 صندوق بس.</span><span class="en"><b>Founding families:</b> your first box is 790 EGP instead of 990, for the first 30 boxes only.</span></p>
       </div>
     </div>
   </section>
 
   <!-- Reserve -->
-  <section class="block-sec soft" id="reserve">
-    <div class="wrap">
-      <div class="head">
-        <h2><span class="ar">احجزي أول صندوق</span><span class="en">Reserve your first box</span></h2>
-        <p><span class="ar">نص دقيقة. مش هتدفعي حاجة دلوقتي، وهنكلمك على واتساب نأكد معاكي.</span><span class="en">Takes 30 seconds. Nothing to pay now; we'll confirm with you on WhatsApp.</span></p>
+  <section class="sec sand" id="reserve">
+    <div class="wrap reserve-grid">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow"><span class="ar">الحجز</span><span class="en">Reserve</span></p>
+          <h2><span class="ar">احجزي أول صندوق</span><span class="en">Reserve your first box</span></h2>
+          <p><span class="ar">نص دقيقة، وهنكلمك على واتساب نأكد معاكي.</span><span class="en">It takes 30 seconds, and we'll confirm with you on WhatsApp.</span></p>
+        </div>
+        <ul class="promise">
+          <li><span class="ar">مش هتدفعي حاجة وانتي بتحجزي</span><span class="en">You pay nothing to reserve</span></li>
+          <li><span class="ar">تقدري تلغي قبل ما الصندوق يتبعت</span><span class="en">Cancel any time before the box ships</span></li>
+          <li><span class="ar">بياناتك بتوصلنا على واتساب بس</span><span class="en">Your details only reach us on WhatsApp</span></li>
+        </ul>
       </div>
-      <div class="reserve">
+      <div class="card">
         <form id="form" novalidate>
           <div class="field">
             <label for="name"><span class="ar">اسمك</span><span class="en">Your name</span></label>
-            <input type="text" id="name" autocomplete="name" maxlength="60">
+            <input type="text" id="name" autocomplete="given-name" maxlength="60">
           </div>
           <div class="field">
             <label for="age"><span class="ar">سن طفلك</span><span class="en">Your child's age</span></label>
@@ -343,51 +367,54 @@ footer{border-top:1px solid var(--line);padding-block:28px calc(96px + env(safe-
             <legend><span class="ar">الباقة</span><span class="en">Plan</span></legend>
             <div class="seg" id="seg"></div>
           </fieldset>
-          <p class="err" id="err" hidden><span class="ar">من فضلك اكتبي اسمك واختاري السن والمنطقة.</span><span class="en">Please add your name and choose the age and area.</span></p>
+          <p class="err" id="err" role="alert" hidden><span class="ar">ناقص اسمك أو السن أو المنطقة.</span><span class="en">Please add your name, your child's age and your area.</span></p>
           <button class="btn wa block" type="submit">
             <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>
             <span class="ar">احجزي على واتساب</span><span class="en">Reserve on WhatsApp</span>
           </button>
-          <p class="fine"><span class="ar">هيفتح واتساب برسالة جاهزة، دوسي إرسال وخلاص.</span><span class="en">WhatsApp opens with your message ready. Just tap send.</span></p>
+          <p class="fine"><span class="ar">واتساب هيفتح برسالة جاهزة، دوسي إرسال بس.</span><span class="en">WhatsApp opens with your message ready. Just tap send.</span></p>
         </form>
         <div class="done" id="done" hidden>
-          <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="28" fill="#E6F7F0"/><path d="M17 29l7 7 15-16" stroke="#1E9E74" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
           <h3><span class="ar">فاضل خطوة واحدة</span><span class="en">One last step</span></h3>
           <p><span class="ar">ابعتي الرسالة على واتساب عشان نثبّت حجزك. لو واتساب مافتحش، دوسي هنا:</span><span class="en">Send the message on WhatsApp to lock in your box. If WhatsApp didn't open, tap here:</span></p>
-          <a class="btn wa" id="waAgain" href="#" rel="noopener"><span class="ar">افتحي واتساب</span><span class="en">Open WhatsApp</span></a>
-          <button type="button" class="lang" id="edit"><span class="ar">تعديل البيانات</span><span class="en">Edit details</span></button>
+          <a class="btn wa" id="waAgain" href="#reserve" rel="noopener"><span class="ar">افتحي واتساب</span><span class="en">Open WhatsApp</span></a>
+          <button type="button" class="ghost" id="edit"><span class="ar">تعديل البيانات</span><span class="en">Edit details</span></button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="block-sec">
+  <section class="sec">
     <div class="wrap">
-      <div class="head"><h2><span class="ar">أسئلة بتتسأل كتير</span><span class="en">Questions moms ask</span></h2></div>
+      <div class="sec-head">
+        <p class="eyebrow"><span class="ar">أسئلة</span><span class="en">Questions</span></p>
+        <h2><span class="ar">اللي الماميز بيسألوه</span><span class="en">What moms ask us</span></h2>
+      </div>
       <div class="faq">
-        <details><summary><span class="ar">الألعاب جديدة؟</span><span class="en">Are the toys new?</span></summary><p><span class="ar">أيوه، كل لعبة جديدة ومتغلّفة، وبتاعة طفلك على طول. مفيش مرتجع.</span><span class="en">Yes. Every toy is brand new and sealed, and your child keeps it. No returns.</span></p></details>
-        <details><summary><span class="ar">هدفع إزاي؟</span><span class="en">How do I pay?</span></summary><p><span class="ar">InstaPay، أو كاش عند الاستلام لأول صندوق. مش هتدفعي حاجة وانتي بتحجزي.</span><span class="en">InstaPay, or cash on delivery for your first box. You pay nothing when you reserve.</span></p></details>
-        <details><summary><span class="ar">بتوصلوا فين؟</span><span class="en">Where do you deliver?</span></summary><p><span class="ar">القاهرة والجيزة دلوقتي، والتوصيل مجاني للعائلات المؤسسة.</span><span class="en">Cairo and Giza for now, with free delivery for founding families.</span></p></details>
-        <details><summary><span class="ar">لو طفلي عنده اللعبة دي؟</span><span class="en">What if my child already has a toy?</span></summary><p><span class="ar">قوليلنا على واتساب بالألعاب اللي عنده، وهنحاول نتجنبها في صناديقه.</span><span class="en">Tell us on WhatsApp what they already have and we'll try to avoid it in their boxes.</span></p></details>
-        <details><summary><span class="ar">أقدر أأجّل أو ألغي؟</span><span class="en">Can I skip or cancel?</span></summary><p><span class="ar">في أي وقت. ابعتيلنا رسالة واتساب قبل يوم 20 في الشهر.</span><span class="en">Anytime. Just send us a WhatsApp message before the 20th of the month.</span></p></details>
-        <details><summary><span class="ar">الألعاب آمنة للأطفال الصغيرين؟</span><span class="en">Are the toys safe for little ones?</span></summary><p><span class="ar">بنختار ألعاب مناسبة للسن المكتوب عليها، ومن غير قطع صغيرة في صناديق الأطفال تحت 3 سنين.</span><span class="en">We choose toys rated for your child's age, with no small parts in boxes for children under 3.</span></p></details>
+        <div><h3><span class="ar">الألعاب جديدة؟</span><span class="en">Are the toys new?</span></h3><p><span class="ar">أيوه، كل لعبة جديدة ومتغلّفة، وبتاعة طفلك على طول. مفيش مرتجع.</span><span class="en">Yes. Every toy is brand new and sealed, and your child keeps it. No returns.</span></p></div>
+        <div><h3><span class="ar">هدفع إزاي؟</span><span class="en">How do I pay?</span></h3><p><span class="ar">InstaPay، أو كاش عند الاستلام لأول صندوق. مش هتدفعي حاجة وانتي بتحجزي.</span><span class="en">InstaPay, or cash on delivery for your first box. You pay nothing when you reserve.</span></p></div>
+        <div><h3><span class="ar">بتوصلوا فين؟</span><span class="en">Where do you deliver?</span></h3><p><span class="ar">القاهرة والجيزة دلوقتي، والتوصيل مجاني للعائلات المؤسسة.</span><span class="en">Cairo and Giza for now, with free delivery for founding families.</span></p></div>
+        <div><h3><span class="ar">لو طفلي عنده اللعبة دي؟</span><span class="en">What if my child already has a toy?</span></h3><p><span class="ar">قوليلنا على واتساب على الألعاب اللي عنده، وهنحاول نتجنبها في صناديقه.</span><span class="en">Tell us on WhatsApp what they already have and we'll try to avoid it in their boxes.</span></p></div>
+        <div><h3><span class="ar">أقدر أأجّل أو ألغي؟</span><span class="en">Can I skip or cancel?</span></h3><p><span class="ar">في أي وقت. ابعتيلنا رسالة واتساب قبل يوم 20 في الشهر.</span><span class="en">Anytime. Just send us a WhatsApp message before the 20th of the month.</span></p></div>
+        <div><h3><span class="ar">الألعاب آمنة للصغيرين؟</span><span class="en">Are the toys safe for little ones?</span></h3><p><span class="ar">بنختار ألعاب مناسبة للسن المكتوب عليها، ومن غير قطع صغيرة في صناديق الأطفال تحت 3 سنين.</span><span class="en">We choose toys rated for your child's age, with no small parts in boxes for children under 3.</span></p></div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="final soft">
-    <div class="wrap">
+  <section class="sec sand">
+    <div class="wrap closing">
       <h2><span class="ar">خلّي كل شهر فيه حاجة جديدة يتعلمها.</span><span class="en">Give every month something new to learn.</span></h2>
-      <p><span class="ar">أول 30 صندوق بـ 790 ج.م بدل 990.</span><span class="en">The first 30 boxes are 790 EGP instead of 990.</span></p>
       <a class="btn" href="#reserve"><span class="ar">احجزي أول صندوق</span><span class="en">Reserve your first box</span></a>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap"><span class="ar">© 2026 فكّة · القاهرة والجيزة</span><span class="en">© 2026 Fakka · Cairo &amp; Giza</span></div>
+  <div class="wrap">
+    <img src="brand/fakka-logo.svg" alt="Fakka فكّة" width="79" height="30">
+    <span><span class="ar">© 2026 فكّة · القاهرة والجيزة</span><span class="en">© 2026 Fakka · Cairo &amp; Giza</span></span>
+  </div>
 </footer>
 
 <div class="bar" id="bar"><a class="btn block" href="#reserve"><span class="ar">احجزي صندوقك</span><span class="en">Reserve your box</span></a></div>
@@ -397,25 +424,25 @@ footer{border-top:1px solid var(--line);padding-block:28px calc(96px + env(safe-
 const WA = ["20", "1099", "958", "063"].join("");
 
 const AGES = [
-  {id:"0", c:"#FF7A59", cs:"#FFF1EB",
-    ar:{label:"6–12 شهر", hint:"بيبي", skills:["المسك","الحواس","السبب والنتيجة"],
+  {id:"0",
+    ar:{label:"6–12 شهر", learns:["المسك","الحواس","السبب والنتيجة"],
       toys:[["كتاب قماش بصفحات بتخشخش","ملمس وأصوات"],["حلقات تركيب ملونة","مسك وترتيب"],["كور حسية بملمس مختلف","حواس"],["خشخيشة آمنة للتسنين","تسنين وأصوات"]]},
-    en:{label:"6–12 months", hint:"Baby", skills:["Grasping","Senses","Cause and effect"],
+    en:{label:"6–12 months", learns:["Grasping","Senses","Cause and effect"],
       toys:[["Soft crinkle cloth book","Textures and sounds"],["Colorful stacking rings","Grip and order"],["Textured sensory balls","Senses"],["Safe teething rattle","Teething and sound"]]}},
-  {id:"1", c:"#C99400", cs:"#FFF7DB",
-    ar:{label:"1–2 سنة", hint:"بيمشي", skills:["الأشكال","المشي","تآزر اليد والعين"],
+  {id:"1",
+    ar:{label:"1–2 سنة", learns:["الأشكال","المشي","تآزر اليد والعين"],
       toys:[["صندوق أشكال","يطابق الأشكال"],["لعبة بيشدّها وهو ماشي","تشجعه يمشي"],["بازل خشب بمسكات كبيرة","تركيز ومسك"],["كتاب كرتون صور ملونة","أول كلمات"]]},
-    en:{label:"1–2 years", hint:"Toddler", skills:["Shapes","Walking","Hand-eye"],
+    en:{label:"1–2 years", learns:["Shapes","Walking","Hand-eye"],
       toys:[["Shape sorter","Matching shapes"],["Pull-along toy","Encourages walking"],["Chunky peg puzzle","Focus and grip"],["Board book of pictures","First words"]]}},
-  {id:"2", c:"#2E7DD7", cs:"#EAF3FF",
-    ar:{label:"2–3 سنين", hint:"بيتكلم", skills:["الألوان","الكلام","المهارات الدقيقة"],
+  {id:"2",
+    ar:{label:"2–3 سنين", learns:["الألوان","الكلام","حركة الصوابع"],
       toys:[["صندوق أشكال خشب 12 قطعة","أشكال وألوان"],["خرز كبير للتلضيم","تحكم في الإيد"],["كروت صور عربي وإنجليزي","كلمات جديدة"],["أكواب ألوان قوس قزح","للعب والحمّام"]]},
-    en:{label:"2–3 years", hint:"Talker", skills:["Colors","Words","Fine motor"],
+    en:{label:"2–3 years", learns:["Colors","Words","Fine motor"],
       toys:[["Wooden shape sorter, 12 pieces","Shapes and colors"],["Chunky lacing beads","Hand control"],["Arabic and English picture cards","New words"],["Rainbow stacking cups","Bath and play"]]}},
-  {id:"3", c:"#1E9E74", cs:"#E6F7F0",
-    ar:{label:"3–5 سنين", hint:"بيتعلم", skills:["العدّ","الحروف","اللعب التخيلي"],
+  {id:"3",
+    ar:{label:"3–5 سنين", learns:["العدّ","الحروف","اللعب التخيلي"],
       toys:[["بازل أرضي 24 قطعة","صبر وتركيز"],["دببة العدّ بالألوان","أرقام وتصنيف"],["حروف مغناطيس عربي وإنجليزي","الحروف"],["شنطة دكتور للعب","خيال وكلام"]]},
-    en:{label:"3–5 years", hint:"Learner", skills:["Counting","Letters","Pretend play"],
+    en:{label:"3–5 years", learns:["Counting","Letters","Pretend play"],
       toys:[["24-piece floor puzzle","Patience and focus"],["Colorful counting bears","Numbers and sorting"],["Arabic and English magnetic letters","Letters"],["Pretend doctor kit","Imagination and talk"]]}}
 ];
 const AREAS = {
@@ -428,34 +455,32 @@ const PLANS = {
   6:{ar:["6 شهور","5,340 ج.م"], en:["6 months","5,340 EGP"]}
 };
 const T = {
-  ar:{choose:"اختاري", inside:"مثال لصندوق", toys:"ألعاب", name:"مثلًا: مريم",
-    note:"دي أمثلة. الألعاب بتتغير كل شهر، ومعاهم كارت لعب ليكي فيه أفكار سهلة.",
+  ar:{choose:"اختاري", learns:"بيتعلم إيه؟", name:"مثلًا: مريم",
+    note:"دي أمثلة. الألعاب بتتغير كل شهر، ومعاهم كارت لعب ليكي.",
     title:"فكّة | ألعاب جديدة كل شهر على قد سن طفلك",
-    msg:(n,a,ar,p)=>`أهلًا فكّة! عايزة أحجز أول صندوق.\nالاسم: ${n}\nسن الطفل: ${a}\nالمنطقة: ${ar}\nالباقة: ${p}`},
-  en:{choose:"Choose", inside:"Example box", toys:"toys", name:"e.g. Mariam",
-    note:"These are examples. Toys change every month, and each box has a play card for you with easy ideas.",
+    msg:(n,a,ar,p)=>`أهلًا فكّة، عايزة أحجز أول صندوق.\nالاسم: ${n}\nسن الطفل: ${a}\nالمنطقة: ${ar}\nالباقة: ${p}`},
+  en:{choose:"Choose", learns:"What they'll practice", name:"e.g. Mariam",
+    note:"These are examples. Toys change every month, and each box has a play card for you.",
     title:"Fakka | New toys every month, made for your child's age",
-    msg:(n,a,ar,p)=>`Hi Fakka! I'd like to reserve a founding box.\nName: ${n}\nChild's age: ${a}\nArea: ${ar}\nPlan: ${p}`}
+    msg:(n,a,ar,p)=>`Hi Fakka, I'd like to reserve a founding box.\nName: ${n}\nChild's age: ${a}\nArea: ${ar}\nPlan: ${p}`}
 };
 
 const $ = id => document.getElementById(id);
 const root = document.documentElement;
-const state = {lang:"ar", age:null, plan:"1"};
+const params = new URLSearchParams(location.search);
+// Where the visitor came from (e.g. ?from=fb-zayed); added to the WhatsApp message so you can count which post works
+const FROM = (params.get("from") || params.get("utm_source") || "").replace(/[^\w-]/g, "").slice(0, 30);
+const state = {lang:"ar", tab:"2", age:null, plan:"1"};
 
 function getPref(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
 function setPref(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
 
-function renderAges(){
+function renderInside(){
   const L = state.lang;
-  $("ages").innerHTML = AGES.map(a => `<button type="button" class="age" data-age="${a.id}" style="--c:${a.c};--cs:${a.cs}" aria-pressed="${state.age===a.id}"><b>${a[L].label}</b><small>${a[L].hint}</small></button>`).join("");
-  const a = AGES.find(x => x.id === (state.age ?? "2"));
-  const d = a[L];
-  const card = $("boxCard");
-  card.style.setProperty("--cs", a.cs); card.style.setProperty("--c", a.c);
-  card.innerHTML = `<div class="box-top"><h3>${T[L].inside} · ${d.label}</h3><span>${d.toys.length} ${T[L].toys}</span></div>
-    <ul class="toys">${d.toys.map((t,i)=>`<li><i>${i+1}</i><div><b>${t[0]}</b><small>${t[1]}</small></div></li>`).join("")}</ul>
-    <div class="skills">${d.skills.map(s=>`<span>${s}</span>`).join("")}</div>
-    <p class="box-note">${T[L].note}</p>`;
+  $("tabs").innerHTML = AGES.map(a => `<button type="button" class="tab" role="tab" data-age="${a.id}" aria-selected="${state.tab===a.id}">${a[L].label}</button>`).join("");
+  const d = AGES.find(a => a.id === state.tab)[L];
+  $("inside-panel").innerHTML = `<ol class="toys">${d.toys.map(t=>`<li><b>${t[0]}</b><small>${t[1]}</small></li>`).join("")}</ol>
+    <aside class="learns"><h3>${T[L].learns}</h3><ul>${d.learns.map(s=>`<li>${s}</li>`).join("")}</ul><p>${T[L].note}</p></aside>`;
 }
 function renderForm(){
   const L = state.lang;
@@ -467,29 +492,30 @@ function renderForm(){
   $("area").value = area;
   $("seg").innerHTML = Object.entries(PLANS).map(([k,p])=>`<label><input type="radio" name="plan" value="${k}"${state.plan===k?" checked":""}><span>${p[L][0]}<small>${p[L][1]}</small></span></label>`).join("");
 }
-function renderPlans(){
-  document.querySelectorAll(".plan").forEach(b => b.setAttribute("aria-pressed", b.dataset.plan === state.plan));
+function renderPrices(){
+  document.querySelectorAll(".price").forEach(b => b.setAttribute("aria-pressed", b.dataset.plan === state.plan));
 }
 function setLang(L){
   state.lang = L;
   root.lang = L; root.dir = L === "ar" ? "rtl" : "ltr";
   document.title = T[L].title;
   setPref("fakka-lang", L);
-  renderAges(); renderForm();
+  renderInside(); renderForm();
 }
 
 $("lang").addEventListener("click", () => setLang(state.lang === "ar" ? "en" : "ar"));
-$("ages").addEventListener("click", e => {
-  const b = e.target.closest(".age"); if(!b) return;
-  state.age = b.dataset.age; renderAges(); $("age").value = state.age;
+$("tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if(!b) return;
+  state.tab = b.dataset.age; state.age = b.dataset.age;
+  renderInside(); $("age").value = state.age;
 });
-$("age").addEventListener("change", e => { state.age = e.target.value || null; renderAges(); });
-$("planCards").addEventListener("click", e => {
-  const b = e.target.closest(".plan"); if(!b) return;
-  state.plan = b.dataset.plan; renderPlans(); renderForm();
+$("age").addEventListener("change", e => { state.age = e.target.value || null; if(state.age){ state.tab = state.age; renderInside(); } });
+$("prices").addEventListener("click", e => {
+  const b = e.target.closest(".price"); if(!b) return;
+  state.plan = b.dataset.plan; renderPrices(); renderForm();
   $("reserve").scrollIntoView({behavior:"smooth"});
 });
-$("seg").addEventListener("change", e => { state.plan = e.target.value; renderPlans(); });
+$("seg").addEventListener("change", e => { state.plan = e.target.value; renderPrices(); });
 
 $("form").addEventListener("submit", e => {
   e.preventDefault();
@@ -499,7 +525,8 @@ $("form").addEventListener("submit", e => {
   if(!name || !age || !area){ $("err").hidden = false; return; }
   $("err").hidden = true;
   const ageLabel = AGES.find(a => a.id === age)[L].label;
-  const text = T[L].msg(name, ageLabel, AREAS[L][area], PLANS[state.plan][L].join(" · "));
+  let text = T[L].msg(name, ageLabel, AREAS[L][area], PLANS[state.plan][L].join(" · "));
+  if(FROM) text += `\n(${FROM})`;
   const url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
   $("waAgain").href = url;
   $("form").hidden = true; $("done").hidden = false;
@@ -507,16 +534,16 @@ $("form").addEventListener("submit", e => {
 });
 $("edit").addEventListener("click", () => { $("done").hidden = true; $("form").hidden = false; });
 
-// Header line on scroll; hide the sticky bar while the form is on screen
+// Header line on scroll; hide the phone bar while the form is on screen
 const header = document.querySelector("header");
 addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), {passive:true});
 if("IntersectionObserver" in window){
   new IntersectionObserver(([en]) => $("bar").classList.toggle("hide", en.isIntersecting), {threshold:.15}).observe($("reserve"));
 }
 
-const fromUrl = new URLSearchParams(location.search).get("lang");
-setLang(fromUrl === "en" || fromUrl === "ar" ? fromUrl : (getPref("fakka-lang") === "en" ? "en" : "ar"));
-renderPlans();
+const lp = params.get("lang");
+setLang(lp === "en" || lp === "ar" ? lp : (getPref("fakka-lang") === "en" ? "en" : "ar"));
+renderPrices();
 </script>
 </body>
 </html>
