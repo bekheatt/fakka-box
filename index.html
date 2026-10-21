@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fakka Play Box</title>
+<meta name="description" content="A monthly box of brand-new toys matched to your child's age. Cairo and Giza. Founding families: first box 790 EGP.">
+<meta property="og:title" content="Fakka Play Box">
+<meta property="og:description" content="New toys every month, made for your child's age. ألعاب جديدة كل شهر، على قد سن طفلك">
+<meta name="theme-color" content="#EEF5FB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;800&family=Readex+Pro:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column like a phone screen, toy-block rhythm, sticky reserve button */
+:root{
+  --bg:#EEF5FB; --surface:#FFFFFF; --ink:#13294B; --muted:#55657E;
+  --sun:#FFC83D; --sun-ink:#3A2A00; --sky:#2E7DD7; --mint:#2FB58A; --line:#D5E2EF;
+  --display:"Baloo Bhaijaan 2","Readex Pro",system-ui,sans-serif;
+  --body:"Readex Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1A2C; --surface:#16263D; --ink:#EAF2FB; --muted:#A3B3C8;
+  --sun:#FFC83D; --sun-ink:#2A1E00; --sky:#6FAEF0; --mint:#4FD3A6; --line:#26395A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1A2C; --surface:#16263D; --ink:#EAF2FB; --muted:#A3B3C8;
+  --sun:#FFC83D; --sun-ink:#2A1E00; --sky:#6FAEF0; --mint:#4FD3A6; --line:#26395A; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:620px;margin:0 auto;padding-block:20px 110px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:40px}
+h1,h2{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,8vw,3.2rem);font-weight:800}
+h2{font-size:1.7rem;font-weight:800}
+p{margin:0}
+.brand{display:flex;align-items:center;justify-content:space-between;font-family:var(--display);font-weight:800;font-size:1.5rem}
+.brand small{font-family:var(--body);font-size:.8rem;font-weight:500;color:var(--muted)}
+.hero{display:flex;flex-direction:column;gap:16px}
+.blocks{display:flex;gap:8px}
+.blocks span{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-family:var(--display);font-weight:800;color:#fff}
+.blocks span:nth-child(1){background:var(--sky)}
+.blocks span:nth-child(2){background:var(--sun);color:var(--sun-ink);transform:rotate(-8deg)}
+.blocks span:nth-child(3){background:var(--mint)}
+.lead{font-size:1.1rem;color:var(--muted)}
+.ar{font-family:var(--display);font-size:1.25rem;font-weight:600;direction:rtl}
+.offer{background:var(--sun);color:var(--sun-ink);border-radius:16px;padding:14px 16px;font-weight:600}
+.section{display:flex;flex-direction:column;gap:16px}
+.steps{display:grid;gap:12px;counter-reset:s;list-style:none;margin:0;padding:0}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:10px;background:var(--sky);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+.ages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.age{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.age b{font-family:var(--display);font-size:1.15rem}
+.age span{font-size:.88rem;color:var(--muted)}
+.sample{background:var(--surface);border:2px dashed var(--sky);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.sample ul{margin:0;padding-left:20px;display:grid;gap:4px}
+.tag{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sky);font-weight:600}
+.plans{display:grid;gap:10px}
+.plan{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer}
+.plan:has(input:checked){border-color:var(--sky)}
+.plan input{accent-color:var(--sky);width:20px;height:20px}
+.plan .l{display:flex;gap:12px;align-items:center}
+.plan b{display:block}
+.plan small{color:var(--muted)}
+.price{font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.save{background:var(--mint);color:#fff;border-radius:999px;padding:1px 8px;font-size:.72rem;font-weight:600;margin-left:6px}
+form{display:grid;gap:14px}
+label.f{display:grid;gap:6px;font-weight:500}
+input[type=text],select{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.btn{font:inherit;font-weight:600;font-size:1.05rem;border:0;border-radius:14px;padding:15px 18px;background:var(--sky);color:#fff;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.err{color:#D2453A;font-size:.9rem}
+.result{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.result pre{white-space:pre-wrap;margin:0;font-family:var(--body);font-size:.92rem;color:var(--muted)}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--muted);margin-top:8px}
+.faq{display:grid;gap:8px}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.bar a{max-width:620px;margin:0 auto}
+foot{display:block;color:var(--muted);font-size:.85rem;text-align:center}
+@media (prefers-reduced-motion:no-preference){.blocks span:nth-child(2){transition:transform .3s}.hero:hover .blocks span:nth-child(2){transform:rotate(8deg)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Fakka <small>box.fakkaeg.com</small></div>
+
+  <section class="hero">
+    <div class="blocks" aria-hidden="true"><span>F</span><span>A</span><span>K</span></div>
+    <h1>A box of brand-new toys, made for your child's age, every month.</h1>
+    <p class="ar">ألعاب جديدة كل شهر، على قد سن طفلك</p>
+    <p class="lead">No more toys that get ignored after two days. Every Fakka box is picked for what your child is learning right now, and it's yours to keep.</p>
+    <p class="offer">Founding families: first box 790 EGP instead of 990. Only 30 boxes this month.</p>
+  </section>
+
+  <section class="section">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><div><b>Tell us your child's age</b><span>We match the box to their stage of development.</span></div></li>
+      <li><div><b>Get your box at your door</b><span>3–4 new, sealed toys plus a card explaining how each one helps.</span></div></li>
+      <li><div><b>A new box every month</b><span>The box grows with your child. Skip or cancel any month on WhatsApp.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>A box for every stage</h2>
+    <div class="ages">
+      <div class="age"><b>6–12 months</b><span>Grasping, textures, sounds, first stacking</span></div>
+      <div class="age"><b>1–2 years</b><span>Shapes, push and pull, simple puzzles</span></div>
+      <div class="age"><b>2–3 years</b><span>Colors, first words, fine motor skills</span></div>
+      <div class="age"><b>3–5 years</b><span>Puzzles, counting, letters, pretend play</span></div>
+    </div>
+    <div class="sample">
+      <span class="tag">Sample box · 2–3 years</span>
+      <ul>
+        <li>Wooden shape sorter with 12 pieces</li>
+        <li>Chunky lacing beads for hand control</li>
+        <li>Arabic and English picture cards</li>
+        <li>Stacking rainbow cups for bath and play</li>
+      </ul>
+      <p style="color:var(--muted);font-size:.9rem">Plus a play card for mom: 5 easy games to play with this month's toys.</p>
+    </div>
+  </section>
+
+  <section class="section" id="reserve">
+    <h2>Reserve your first box</h2>
+    <form id="f" novalidate>
+      <div class="plans" role="radiogroup" aria-label="Plan">
+        <label class="plan"><span class="l"><input type="radio" name="plan" id="p1" value="Monthly" checked><span><b>Monthly</b><small>Cancel anytime</small></span></span><span class="price">990 EGP</span></label>
+        <label class="plan"><span class="l"><input type="radio" name="plan" id="p3" value="3 months"><span><b>3 months <span class="save">Save 6%</span></b><small>930 EGP a box</small></span></span><span class="price">2,790 EGP</span></label>
+        <label class="plan"><span class="l"><input type="radio" name="plan" id="p6" value="6 months"><span><b>6 months <span class="save">Save 10%</span></b><small>890 EGP a box</small></span></span><span class="price">5,340 EGP</span></label>
+      </div>
+      <label class="f" for="name">Your name<input type="text" id="name" autocomplete="name" placeholder="e.g. Mariam"></label>
+      <label class="f" for="age">Child's age
+        <select id="age">
+          <option value="">Choose an age</option>
+          <option>6–12 months</option><option>1–2 years</option><option>2–3 years</option><option>3–5 years</option>
+        </select></label>
+      <label class="f" for="area">Area<input type="text" id="area" placeholder="e.g. New Cairo, Sheikh Zayed"></label>
+      <p class="err" id="err" hidden>Please add your name, your child's age and your area.</p>
+      <button class="btn" type="submit">Reserve on WhatsApp</button>
+    </form>
+    <div class="result" id="res" hidden>
+      <b>Almost done. Send this message to confirm your box:</b>
+      <pre id="msg"></pre>
+      <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+      <p style="color:var(--muted);font-size:.85rem">If WhatsApp doesn't open, message us at <b id="num"></b> with the text above.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Questions moms ask</h2>
+    <div class="faq">
+      <details><summary>Are the toys new?</summary><p>Yes. Every toy is brand new and sealed, and your child keeps it.</p></details>
+      <details><summary>How do I pay?</summary><p>InstaPay or cash on delivery for your first box.</p></details>
+      <details><summary>Where do you deliver?</summary><p>Cairo and Giza for now, with free delivery for founding families.</p></details>
+      <details><summary>Can I skip or cancel?</summary><p>Anytime. Just send us a WhatsApp message before the 20th of the month.</p></details>
+    </div>
+  </section>
+
+  <foot>Fakka · box.fakkaeg.com</foot>
+</div>
+
+<div class="bar"><a class="btn" href="#reserve">Reserve your box</a></div>
+
+<script>
+// Replace with your WhatsApp number in international format, no + or spaces (e.g. 201001234567)
+const WHATSAPP = "201099958063";
+document.getElementById('num').textContent = "+" + WHATSAPP;
+document.getElementById('f').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const age = document.getElementById('age').value;
+  const area = document.getElementById('area').value.trim();
+  const plan = document.querySelector('input[name=plan]:checked').value;
+  const err = document.getElementById('err');
+  if (!name || !age || !area) { err.hidden = false; return; }
+  err.hidden = true;
+  const text = `Hi Fakka! I'd like to reserve a founding box.\nName: ${name}\nChild's age: ${age}\nArea: ${area}\nPlan: ${plan}`;
+  document.getElementById('msg').textContent = text;
+  document.getElementById('wa').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+  document.getElementById('res').hidden = false;
+  document.getElementById('res').scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+</body>
+</html>
