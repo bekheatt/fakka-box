@@ -339,6 +339,13 @@ footer img{height:28px;width:auto}
 .toast.off{opacity:0;transform:translateY(12px);pointer-events:none}
 .toast button{background:var(--accent-deep);color:#fff;border:0;border-radius:999px;padding:0 16px;min-height:40px;font-weight:700;font-size:.88rem;cursor:pointer;white-space:nowrap}
 </style>
+<!-- Meta Pixel (dataset "Fakka shop pixel" in the Fakka Play Box business portfolio) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","1107715185478065");
+fbq("track","PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1107715185478065&ev=PageView&noscript=1"></noscript>
 </head>
 <body>
 <header id="hdr">
@@ -592,6 +599,9 @@ const root = document.documentElement;
 const params = new URLSearchParams(location.search);
 // Where the visitor came from (e.g. ?from=ad1); added to the order message so you can count which ad works
 const FROM = (params.get("from") || params.get("utm_source") || "").replace(/[^\w-]/g, "").slice(0, 30);
+// Funnel events for the Meta Pixel; never let tracking break the page
+function track(name, params){ try{ if(window.fbq) fbq("track", name, Object.assign({source:FROM || "direct"}, params)); }catch(e){} }
+function trackAdd(id){ const t = toy(id); track("AddToCart", {content_ids:[String(id)], content_name:t.en[0], content_type:"product", num_items:t.s}); }
 const state = {lang:"ar", mode:"me", step:1, age:null, box:null, picks:[], done:null,
   form:{name:"", phone:"", area:"", address:"", pay:"cash", gift:false, gname:"", gmsg:""}};
 
@@ -720,6 +730,7 @@ function render(anim){
 function go(n){
   if(n === 4 && !state.picks.length){ toast(T[state.lang].needToy); return; }
   state.step = n; render(true);
+  if(n === 4) track("InitiateCheckout", {value:box().price, currency:"EGP", num_items:state.picks.length, content_ids:state.picks.map(String), content_name:box().en + " box"});
   const top = $("studio").getBoundingClientRect().top;
   if(top < 0 || top > innerHeight * .5) $("studio").scrollIntoView({behavior:"smooth"});
 }
@@ -757,18 +768,18 @@ function toggleToy(id){
   const left = box().stars - used();
   if(t.s > left){
     const bigger = BOXES.find(b => b.stars >= used() + t.s && b.stars > box().stars);
-    if(bigger) toast(T[L].noFit(t.s, left), T[L].upgrade(bigger), () => { state.box = bigger.id; const before = used(); state.picks.push(id); refreshToys(before); $("panel").querySelector(".q-sub").textContent = T[L].q3s(ageLabel(state.age), box()); });
+    if(bigger) toast(T[L].noFit(t.s, left), T[L].upgrade(bigger), () => { state.box = bigger.id; const before = used(); state.picks.push(id); trackAdd(id); refreshToys(before); $("panel").querySelector(".q-sub").textContent = T[L].q3s(ageLabel(state.age), box()); });
     else toast(state.picks.length ? T[L].noFit(t.s, left) : T[L].tooBig);
     return false;
   }
-  state.picks.push(id); return true;
+  state.picks.push(id); trackAdd(id); return true;
 }
 
 // ===== Events =====
 document.addEventListener("click", e => {
   const m = e.target.closest("[data-mode]"); if(m){ startMode(m.dataset.mode); return; }
   const g = e.target.closest("[data-go]"); if(g && !g.disabled){ go(+g.dataset.go); return; }
-  const a = e.target.closest(".age"); if(a){ const id = +a.dataset.age; if(id !== state.age) state.picks = []; state.age = id; if(state.mode === "gift" && !state.box) state.box = "gift"; go(2); return; }
+  const a = e.target.closest(".age"); if(a){ const id = +a.dataset.age; track("ViewContent", {content_name:"age " + AGES.find(x => x.id === id).en, content_category:state.mode}); if(id !== state.age) state.picks = []; state.age = id; if(state.mode === "gift" && !state.box) state.box = "gift"; go(2); return; }
   const bx = e.target.closest(".bx"); if(bx){ if(bx.disabled){ toast(T[state.lang].shrink); return; } state.box = bx.dataset.box; go(3); return; }
   const ty = e.target.closest(".toy"); if(ty){ const before = used(); if(toggleToy(+ty.dataset.id)) refreshToys(before); return; }
   const rm = e.target.closest("[data-rm]"); if(rm){ state.picks.splice(state.picks.indexOf(+rm.dataset.rm), 1); if(!state.picks.length){ go(3); return; } $("summary").innerHTML = summaryHTML(); renderSteps(); save(); return; }
@@ -846,6 +857,7 @@ document.addEventListener("submit", e => {
       })}).catch(() => {});
     }catch(err){}
   }
+  track("Lead", {value:c.total, currency:"EGP", content_name:c.b.en + " box", content_ids:state.picks.map(String), num_items:state.picks.length, gift:c.gift ? "yes" : "no", payment:f.pay});
   window.open(url, "_blank", "noopener");
   state.done = url; render(true);
 });
@@ -868,6 +880,7 @@ function setLang(L){
   setPref("fakka-lang", L);
   renderStatic(); render();
 }
+["brand-wa", "brand-wa-en"].forEach(id => $(id).addEventListener("click", () => track("Contact", {content_name:"original brand gift"})));
 $("lang").addEventListener("click", () => setLang(state.lang === "ar" ? "en" : "ar"));
 
 // Header turns white once the hero scrolls away
