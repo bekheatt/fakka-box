@@ -98,6 +98,8 @@ header.scrolled .nav-go{background:var(--accent-deep);color:#fff}
 .hero .ctas .btn{min-width:180px}
 .hero .ok{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:.92rem;opacity:.9}
 .hero .ok span{display:inline-flex;gap:6px;align-items:center}
+.hero .help{margin-top:16px;font-size:.95rem}
+.hero .help a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;display:inline-flex;gap:6px;align-items:center}
 @media (max-width:880px){
   .hero{border-radius:0 0 28px 28px;padding-block:8px 40px}
   .hero .wrap{grid-template-columns:minmax(0,1fr);gap:26px}
@@ -368,7 +370,9 @@ fbq("track","PageView");
           <button class="btn light" type="button" data-mode="me"><i class="ph-bold ph-baby"></i><span class="ar">لطفلي</span><span class="en">For my child</span></button>
           <button class="btn ghost-l" type="button" data-mode="gift"><i class="ph-bold ph-gift"></i><span class="ar">هدية لحد</span><span class="en">It's a gift</span></button>
         </div>
+        <p class="help"><a id="help-wa" href="#" target="_blank" rel="noopener"><i class="ph-bold ph-whatsapp-logo"></i><span class="ar">مش عايزة تختاري؟ قوليلنا سنه على واتساب واحنا نختارلك</span><span class="en">Rather not pick? Tell us their age on WhatsApp and we'll pick</span></a></p>
         <div class="ok">
+          <span><i class="ph-bold ph-check"></i><span class="ar">صناديق من <b id="from-ar"></b> ج.م</span><span class="en">Boxes from <b id="from-en"></b> EGP</span></span>
           <span><i class="ph-bold ph-check"></i><span class="ar">الدفع عند الاستلام</span><span class="en">Pay on delivery</span></span>
           <span><i class="ph-bold ph-check"></i><span class="ar">توصيل 3 لـ 5 أيام</span><span class="en">3 to 5 day delivery</span></span>
         </div>
@@ -573,7 +577,8 @@ const T = {
     noFit:(need,left) => `اللعبة دي ${T.ar.stars(need)} وفاضلك ${left === 0 ? "صفر" : T.ar.stars(left)}.`, upgrade:b => `كبّري لـ ${b.ar}`,
     tooBig:"اللعبة دي أكبر من أي صندوق.", shrink:"شيلي ألعاب الأول عشان الصندوق ده يكفيها.", needToy:"اختاري لعبة واحدة على الأقل.",
     missing:"ناقص اسمك أو رقمك أو المنطقة أو العنوان.", badPhone:"اكتبي رقم موبايل مصري صحيح، زي 01012345678.", needGiftName:"اكتبي اسم الطفل للكارت.",
-    title:"فكّة | صندوق ألعاب على ذوقك", brandMsg:"أهلًا فكّة، عايزة أسأل عن لعبة ماركة أصلية كهدية: "},
+    title:"فكّة | صندوق ألعاب على ذوقك", brandMsg:"أهلًا فكّة، عايزة أسأل عن لعبة ماركة أصلية كهدية: ",
+    helpMsg:"أهلًا فكّة، عايزة صندوق ألعاب وتختاروهولي إنتو.\nسن الطفل: \nالمنطقة: \nالميزانية تقريبًا: "},
   en:{egp:"EGP", choose:"Choose", stars:n => n === 1 ? "1 star" : n + " stars",
     steps:["Age","Size","Toys","Order"], back:"Back",
     q1:{me:"How old is your child?", gift:"How old is the child you're gifting?"}, q1s:"We'll only show toys that suit their age.",
@@ -591,7 +596,8 @@ const T = {
     noFit:(need,left) => `This toy is ${T.en.stars(need)} and you have ${left} left.`, upgrade:b => `Switch to ${b.en}`,
     tooBig:"This toy is bigger than any box.", shrink:"Remove some toys first so they fit this box.", needToy:"Pick at least one toy.",
     missing:"Please add your name, number, area and address.", badPhone:"Please enter an Egyptian mobile number, like 01012345678.", needGiftName:"Please add the child's name for the card.",
-    title:"Fakka | A toy box you fill yourself", brandMsg:"Hi Fakka, I'd like to ask about an original brand-name toy as a gift: "}
+    title:"Fakka | A toy box you fill yourself", brandMsg:"Hi Fakka, I'd like to ask about an original brand-name toy as a gift: ",
+    helpMsg:"Hi Fakka, I'd like a toy box and I'd like you to pick the toys.\nChild's age: \nArea: \nRough budget: "}
 };
 
 const $ = id => document.getElementById(id);
@@ -872,6 +878,9 @@ function renderStatic(){
   $("bf-ar").textContent = BRAND_FEE; $("bf-en").textContent = BRAND_FEE;
   const bw = "https://wa.me/" + WA + "?text=" + encodeURIComponent(T[L].brandMsg + (FROM ? `\n(from: ${FROM})` : ""));
   $("brand-wa").href = bw; $("brand-wa-en").href = bw;
+  $("help-wa").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(T[L].helpMsg + (FROM ? `\n(from: ${FROM})` : ""));
+  const from = fmt(Math.min(...BOXES.map(b => b.price)));
+  $("from-ar").textContent = from; $("from-en").textContent = from;
 }
 function setLang(L){
   state.lang = L;
@@ -881,6 +890,7 @@ function setLang(L){
   renderStatic(); render();
 }
 ["brand-wa", "brand-wa-en"].forEach(id => $(id).addEventListener("click", () => track("Contact", {content_name:"original brand gift"})));
+$("help-wa").addEventListener("click", () => track("Contact", {content_name:"pick for me"}));
 $("lang").addEventListener("click", () => setLang(state.lang === "ar" ? "en" : "ar"));
 
 // Header turns white once the hero scrolls away
